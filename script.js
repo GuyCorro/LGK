@@ -1,40 +1,48 @@
-// Mobile Navigation Toggle
+// Mobile Navigation Toggle - Simplified and Fixed
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.header-menu ul');
     
+    console.log('Mobile menu elements found:', { hamburger: !!hamburger, navMenu: !!navMenu });
+    
     if (hamburger && navMenu) {
-        // Toggle menu when hamburger is clicked
+        // Simple toggle for hamburger click
         hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
             e.stopPropagation();
+            console.log('Hamburger clicked!');
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
         
-        // Close menu when clicking on internal page links only
+        // Handle navigation link clicks
         document.querySelectorAll('.header-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
+                console.log('Link clicked:', href);
                 
-                // Only close menu for internal page links (starting with #)
+                // For internal links, close menu and scroll
                 if (href && href.startsWith('#')) {
                     hamburger.classList.remove('active');
                     navMenu.classList.remove('active');
+                    // Let the smooth scrolling handle the navigation
                 }
-                // For external links (migration.html, recruitment.html), don't close menu
-                // Let the browser handle the navigation naturally
+                // For external links, just let the browser navigate normally
+                // Don't close menu - let it stay open
             });
         });
         
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
-            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            if (navMenu.classList.contains('active') && 
+                !hamburger.contains(e.target) && 
+                !navMenu.contains(e.target)) {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
             }
         });
         
-        // Close menu when screen size changes
+        // Close menu on window resize
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) {
                 hamburger.classList.remove('active');

@@ -176,6 +176,8 @@ body, .dark-theme {
 @media (max-width: 768px) {
     .header-card {
         padding: 1.5rem 1rem 1rem 1rem;
+        position: relative;
+        z-index: 10;
     }
     
     .header-title {
@@ -190,6 +192,7 @@ body, .dark-theme {
     
     .header-menu {
         position: relative;
+        z-index: 1001;
     }
     
     .hamburger {
@@ -197,6 +200,7 @@ body, .dark-theme {
         position: absolute;
         right: 0;
         top: -40px;
+        z-index: 1002;
     }
     
     .header-menu ul {
@@ -213,6 +217,7 @@ body, .dark-theme {
         padding: 80px 2rem 2rem 2rem;
         z-index: 1000;
         gap: 1rem;
+        margin: 0;
     }
     
     .header-menu ul.active {
@@ -226,6 +231,14 @@ body, .dark-theme {
         width: 100%;
         max-width: 300px;
         margin: 0 auto;
+        background: rgba(255,255,255,0.1);
+        color: #fff;
+        border: 2px solid transparent;
+    }
+    
+    .header-link:hover {
+        background: rgba(255,255,255,0.2);
+        border-color: rgba(255,255,255,0.3);
     }
 }
 
