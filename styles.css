@@ -140,18 +140,24 @@ body, .dark-theme {
     flex-direction: column;
     cursor: pointer;
     padding: 10px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(37, 99, 235, 0.2);
     border-radius: 8px;
     margin-left: auto;
+    border: 2px solid rgba(37, 99, 235, 0.3);
 }
 
 .hamburger .bar {
     width: 25px;
     height: 3px;
-    background-color: #fff;
+    background-color: #2563eb;
     margin: 3px 0;
     transition: 0.3s;
     border-radius: 2px;
+}
+
+.hamburger:hover {
+    background: rgba(37, 99, 235, 0.3);
+    border-color: rgba(37, 99, 235, 0.5);
 }
 
 .hamburger.active .bar:nth-child(1) {

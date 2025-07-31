@@ -1,30 +1,46 @@
 // Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.header-menu ul');
-
-if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // Close mobile menu only when clicking on internal page links
-    document.querySelectorAll('.header-link').forEach(n => n.addEventListener('click', (e) => {
-        const href = n.getAttribute('href');
-        // Only close menu for internal page links (starting with #)
-        if (href && href.startsWith('#')) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
-        // Don't close menu for external page links (migration.html, recruitment.html)
-    }));
-}
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (hamburger && navMenu && !hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.header-menu ul');
+    
+    if (hamburger && navMenu) {
+        // Toggle menu when hamburger is clicked
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on internal page links only
+        document.querySelectorAll('.header-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Only close menu for internal page links (starting with #)
+                if (href && href.startsWith('#')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+                // For external links (migration.html, recruitment.html), don't close menu
+                // Let the browser handle the navigation naturally
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+        
+        // Close menu when screen size changes
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
     }
 });
 
