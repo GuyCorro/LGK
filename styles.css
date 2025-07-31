@@ -224,8 +224,8 @@ body, .dark-theme {
     
     .header-menu ul.active {
         left: 0 !important;
-        /* Debug: Add different border when active */
-        border: 3px solid green;
+        display: flex !important;
+        flex-direction: column;
     }
     
     /* More specific selector to ensure it works */
