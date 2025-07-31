@@ -1,17 +1,27 @@
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+const navMenu = document.querySelector('.header-menu ul');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.header-link').forEach(n => n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }));
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (hamburger && navMenu && !hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
 });
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -29,13 +39,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Navbar background change on scroll
 window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
+    const headerCard = document.querySelector('.header-card');
+    if (headerCard) {
+        if (window.scrollY > 100) {
+            headerCard.style.background = 'linear-gradient(135deg, rgba(30, 41, 59, 0.95) 60%, rgba(37, 99, 235, 0.9) 100%)';
+            headerCard.style.boxShadow = '0 4px 24px rgba(30, 41, 59, 0.2)';
+        } else {
+            headerCard.style.background = 'linear-gradient(135deg, #1e293b 60%, #2563eb 100%)';
+            headerCard.style.boxShadow = '0 4px 24px rgba(30, 41, 59, 0.13)';
+        }
     }
 });
 
@@ -55,10 +67,17 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe all service cards and other elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.service-card, .stat, .contact-item');
+    const animatedElements = document.querySelectorAll('.service-card, .stat, .contact-item, .hero-card');
     animatedElements.forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
+    });
+    
+    // Add fade-in class to sections for better mobile experience
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.classList.add('fade-in');
+        observer.observe(section);
     });
 });
 
@@ -105,7 +124,7 @@ function showNotification(message, type = 'info') {
     notification.className = `notification notification-${type}`;
     notification.innerHTML = `
         <div class="notification-content">
-            <span>${message}</span>
+            <span class="notification-message">${message}</span>
             <button class="notification-close">&times;</button>
         </div>
     `;
@@ -113,69 +132,76 @@ function showNotification(message, type = 'info') {
     // Add styles
     notification.style.cssText = `
         position: fixed;
-        top: 100px;
+        top: 20px;
         right: 20px;
         background: ${type === 'success' ? '#10b981' : '#3b82f6'};
         color: white;
         padding: 1rem 1.5rem;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         z-index: 10000;
-        transform: translateX(400px);
-        transition: transform 0.3s ease;
         max-width: 400px;
+        animation: slideIn 0.3s ease;
     `;
+    
+    // Add slide-in animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .notification-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .notification-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+        .notification-close:hover {
+            opacity: 0.8;
+        }
+    `;
+    document.head.appendChild(style);
     
     // Add to page
     document.body.appendChild(notification);
     
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
     // Close button functionality
     const closeBtn = notification.querySelector('.notification-close');
     closeBtn.addEventListener('click', () => {
-        notification.style.transform = 'translateX(400px)';
-        setTimeout(() => notification.remove(), 300);
+        notification.remove();
     });
     
-    // Auto remove after 5 seconds
+    // Auto-remove after 5 seconds
     setTimeout(() => {
         if (notification.parentNode) {
-            notification.style.transform = 'translateX(400px)';
-            setTimeout(() => notification.remove(), 300);
+            notification.remove();
         }
     }, 5000);
 }
 
-// Service card hover effects
-document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
-
-// Removed counter animations for cleaner design
-
-// Removed parallax effect for cleaner design
-
 // Form validation
 function validateForm(form) {
-    const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+    const inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
     let isValid = true;
     
     inputs.forEach(input => {
         if (!input.value.trim()) {
-            input.style.borderColor = '#ef4444';
             isValid = false;
+            input.style.borderColor = '#ef4444';
+            input.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
         } else {
             input.style.borderColor = '#e2e8f0';
+            input.style.boxShadow = 'none';
         }
     });
     
@@ -184,8 +210,10 @@ function validateForm(form) {
     if (emailInput && emailInput.value) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(emailInput.value)) {
-            emailInput.style.borderColor = '#ef4444';
             isValid = false;
+            emailInput.style.borderColor = '#ef4444';
+            emailInput.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
+            showNotification('Please enter a valid email address.', 'error');
         }
     }
     
@@ -194,49 +222,25 @@ function validateForm(form) {
 
 // Add form validation to contact form
 if (contactForm) {
-    const inputs = contactForm.querySelectorAll('input, select, textarea');
-    inputs.forEach(input => {
-        input.addEventListener('blur', () => {
-            if (input.hasAttribute('required') && !input.value.trim()) {
-                input.style.borderColor = '#ef4444';
-            } else {
-                input.style.borderColor = '#e2e8f0';
-            }
-        });
-        
-        input.addEventListener('input', () => {
-            if (input.style.borderColor === 'rgb(239, 68, 68)') {
-                input.style.borderColor = '#e2e8f0';
-            }
-        });
+    contactForm.addEventListener('submit', function(e) {
+        if (!validateForm(this)) {
+            e.preventDefault();
+            showNotification('Please fill in all required fields correctly.', 'error');
+        }
     });
 }
 
-// Lazy loading for images (if any are added later)
-const lazyImages = document.querySelectorAll('img[data-src]');
-const imageObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const img = entry.target;
-            img.src = img.dataset.src;
-            img.classList.remove('lazy');
-            imageObserver.unobserve(img);
-        }
-    });
-});
-
-lazyImages.forEach(img => imageObserver.observe(img));
-
-// Add active class to current navigation item
+// Active navigation highlighting
 function updateActiveNavItem() {
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.header-link');
     
     let current = '';
+    
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= sectionTop - 200) {
+        if (window.scrollY >= (sectionTop - 200)) {
             current = section.getAttribute('id');
         }
     });
@@ -249,31 +253,77 @@ function updateActiveNavItem() {
     });
 }
 
+// Update active nav item on scroll
 window.addEventListener('scroll', updateActiveNavItem);
 
-// Add CSS for active navigation state
-const style = document.createElement('style');
-style.textContent = `
-    .nav-link.active {
-        color: #2563eb !important;
+// Initialize active nav item
+document.addEventListener('DOMContentLoaded', updateActiveNavItem);
+
+// Mobile-specific improvements
+function handleMobileImprovements() {
+    // Add touch-friendly improvements
+    const touchElements = document.querySelectorAll('.btn, .header-link, .contact-item');
+    touchElements.forEach(element => {
+        element.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+        
+        element.addEventListener('touchend', function() {
+            this.style.transform = '';
+        });
+    });
+    
+    // Prevent zoom on double tap for iOS
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+}
+
+// Initialize mobile improvements
+document.addEventListener('DOMContentLoaded', handleMobileImprovements);
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    // Close mobile menu if screen becomes larger
+    if (window.innerWidth > 768) {
+        if (hamburger && navMenu) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
     }
-    .nav-link.active::after {
-        width: 100% !important;
+});
+
+// Add loading animation styles
+const loadingStyles = document.createElement('style');
+loadingStyles.textContent = `
+    .loading {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: spin 1s ease-in-out infinite;
     }
-    .notification-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
+    
+    @keyframes spin {
+        to { transform: rotate(360deg); }
     }
-    .notification-close {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0;
-        line-height: 1;
+    
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+    }
+    
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
     }
 `;
-document.head.appendChild(style); 
+document.head.appendChild(loadingStyles); 
