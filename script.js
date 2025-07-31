@@ -17,6 +17,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let isMenuOpen = false;
     
+    // Function to log menu state
+    function logMenuState(action) {
+        console.log(`📊 ${action}:`, {
+            isMenuOpen,
+            hamburgerActive: hamburger.classList.contains('active'),
+            navMenuActive: navMenu.classList.contains('active'),
+            navMenuLeft: window.getComputedStyle(navMenu).left
+        });
+    }
+    
     // Hamburger click handler
     hamburger.addEventListener('click', function(e) {
         e.preventDefault();
@@ -26,6 +36,11 @@ document.addEventListener('DOMContentLoaded', function() {
         isMenuOpen = !isMenuOpen;
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+        
+        logMenuState('After hamburger click');
+        
+        // Force a repaint to ensure CSS changes are applied
+        navMenu.offsetHeight;
         
         console.log('Menu state changed to:', isMenuOpen);
     });
@@ -44,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 isMenuOpen = false;
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                logMenuState('After internal link click');
             } else {
                 console.log('External link - keeping menu open');
                 // Don't close menu for external links
@@ -63,7 +79,8 @@ document.addEventListener('DOMContentLoaded', function() {
             isMenuOpen,
             isClickInsideMenu,
             isClickOnHamburger,
-            clickedElement: clickedElement.tagName
+            clickedElement: clickedElement.tagName,
+            clickedElementClass: clickedElement.className
         });
         
         if (!isClickInsideMenu && !isClickOnHamburger) {
@@ -71,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
             isMenuOpen = false;
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            logMenuState('After click outside');
         }
     });
     
@@ -81,9 +99,12 @@ document.addEventListener('DOMContentLoaded', function() {
             isMenuOpen = false;
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            logMenuState('After resize');
         }
     });
     
+    // Log initial state
+    logMenuState('Initial state');
     console.log('✅ Mobile menu initialization complete');
 });
 
