@@ -1988,3 +1988,19 @@ body, .dark-theme {
         page-break-inside: avoid;
     }
 } 
+
+.migration-hero, .recruitment-hero {
+    min-height: 380px !important;
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 700px) {
+    .migration-hero, .recruitment-hero {
+        min-height: 260px !important;
+        padding-top: 32px !important;
+        padding-bottom: 32px !important;
+    }
+} 

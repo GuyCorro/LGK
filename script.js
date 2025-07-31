@@ -37,20 +37,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background change on scroll
-window.addEventListener('scroll', () => {
-    const headerCard = document.querySelector('.header-card');
-    if (headerCard) {
-        if (window.scrollY > 100) {
-            headerCard.style.background = 'linear-gradient(135deg, rgba(30, 41, 59, 0.95) 60%, rgba(37, 99, 235, 0.9) 100%)';
-            headerCard.style.boxShadow = '0 4px 24px rgba(30, 41, 59, 0.2)';
-        } else {
-            headerCard.style.background = 'linear-gradient(135deg, #1e293b 60%, #2563eb 100%)';
-            headerCard.style.boxShadow = '0 4px 24px rgba(30, 41, 59, 0.13)';
-        }
-    }
-});
-
 // Intersection Observer for fade-in animations
 const observerOptions = {
     threshold: 0.1,
