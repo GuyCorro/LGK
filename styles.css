@@ -2116,6 +2116,8 @@ body .recruitment-hero .hero-container {
     padding: 0 20px !important;
     max-height: 190px !important;
     overflow: hidden !important;
+    grid-template-columns: 3fr 1fr !important;
+    align-items: center !important;
 }
 
 body .hero.migration-hero .hero-content h1,
@@ -2140,6 +2142,56 @@ body .recruitment-hero .hero-content p {
     line-height: 1.3 !important;
 }
 
+/* Make the hero image much smaller */
+body .hero.migration-hero .hero-image,
+body .hero.recruitment-hero .hero-image,
+body .migration-hero.hero .hero-image,
+body .recruitment-hero.hero .hero-image,
+body .migration-hero .hero-image,
+body .recruitment-hero .hero-image {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    max-width: 120px !important;
+    max-height: 120px !important;
+}
+
+body .hero.migration-hero .hero-card,
+body .hero.recruitment-hero .hero-card,
+body .migration-hero.hero .hero-card,
+body .recruitment-hero.hero .hero-card,
+body .migration-hero .hero-card,
+body .recruitment-hero .hero-card {
+    padding: 0.8rem !important;
+    border-radius: 8px !important;
+    max-height: 60px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+body .hero.migration-hero .hero-card h3,
+body .hero.recruitment-hero .hero-card h3,
+body .migration-hero.hero .hero-card h3,
+body .recruitment-hero.hero .hero-card h3,
+body .migration-hero .hero-card h3,
+body .recruitment-hero .hero-card h3 {
+    font-size: 0.7rem !important;
+    margin: 0 !important;
+    text-align: center !important;
+    line-height: 1.1 !important;
+}
+
+body .hero.migration-hero .hero-card p,
+body .hero.recruitment-hero .hero-card p,
+body .migration-hero.hero .hero-card p,
+body .recruitment-hero.hero .hero-card p,
+body .migration-hero .hero-card p,
+body .recruitment-hero .hero-card p {
+    display: none !important;
+}
+
 @media (max-width: 700px) {
     body .hero.migration-hero,
     body .hero.recruitment-hero,
@@ -2161,6 +2213,8 @@ body .recruitment-hero .hero-content p {
     body .migration-hero .hero-container,
     body .recruitment-hero .hero-container {
         max-height: 110px !important;
+        grid-template-columns: 2.5fr 1fr !important;
+        gap: 0.5rem !important;
     }
     
     body .hero.migration-hero .hero-content h1,
@@ -2181,5 +2235,35 @@ body .recruitment-hero .hero-content p {
     body .recruitment-hero .hero-content p {
         font-size: 0.8rem !important;
         margin-bottom: 0.5rem !important;
+    }
+    
+    body .hero.migration-hero .hero-image,
+    body .hero.recruitment-hero .hero-image,
+    body .migration-hero.hero .hero-image,
+    body .recruitment-hero.hero .hero-image,
+    body .migration-hero .hero-image,
+    body .recruitment-hero .hero-image {
+        max-width: 80px !important;
+        max-height: 80px !important;
+        gap: 0.3rem !important;
+    }
+    
+    body .hero.migration-hero .hero-card,
+    body .hero.recruitment-hero .hero-card,
+    body .migration-hero.hero .hero-card,
+    body .recruitment-hero.hero .hero-card,
+    body .migration-hero .hero-card,
+    body .recruitment-hero .hero-card {
+        padding: 0.5rem !important;
+        max-height: 40px !important;
+    }
+    
+    body .hero.migration-hero .hero-card h3,
+    body .hero.recruitment-hero .hero-card h3,
+    body .migration-hero.hero .hero-card h3,
+    body .recruitment-hero.hero .hero-card h3,
+    body .migration-hero .hero-card h3,
+    body .recruitment-hero .hero-card h3 {
+        font-size: 0.6rem !important;
     }
 } 
