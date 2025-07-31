@@ -37,6 +37,17 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
         
+        // Immediate debugging
+        console.log('🔍 IMMEDIATE DEBUG:', {
+            isMenuOpen: isMenuOpen,
+            hamburgerClasses: hamburger.className,
+            navMenuClasses: navMenu.className,
+            navMenuStyle: navMenu.style.cssText,
+            navMenuComputedLeft: window.getComputedStyle(navMenu).left,
+            navMenuComputedDisplay: window.getComputedStyle(navMenu).display,
+            navMenuComputedPosition: window.getComputedStyle(navMenu).position
+        });
+        
         logMenuState('After hamburger click');
         
         // Force a repaint to ensure CSS changes are applied

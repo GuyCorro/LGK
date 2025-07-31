@@ -218,10 +218,14 @@ body, .dark-theme {
         z-index: 1000;
         gap: 1rem;
         margin: 0;
+        /* Debug: Add border to see menu boundaries */
+        border: 3px solid red;
     }
     
     .header-menu ul.active {
         left: 0;
+        /* Debug: Add different border when active */
+        border: 3px solid green;
     }
     
     .header-link {
