@@ -1,69 +1,120 @@
-// Mobile Navigation Toggle - Simplified and Fixed
+// Mobile Navigation Toggle - Completely Recreated
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('=== MOBILE MENU INITIALIZATION ===');
+    
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.header-menu ul');
     
-    console.log('Mobile menu elements found:', { hamburger: !!hamburger, navMenu: !!navMenu });
+    console.log('Elements found:', {
+        hamburger: hamburger ? 'Found' : 'NOT FOUND',
+        navMenu: navMenu ? 'Found' : 'NOT FOUND'
+    });
     
-    if (hamburger && navMenu) {
-        // Simple toggle for hamburger click
-        hamburger.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Hamburger clicked!');
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        
-        // Handle navigation link clicks
-        document.querySelectorAll('.header-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                console.log('Link clicked:', href);
-                
-                // For internal links, close menu and scroll
-                if (href && href.startsWith('#')) {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    // Let the smooth scrolling handle the navigation
-                }
-                // For external links, just let the browser navigate normally
-                // Don't close menu - let it stay open
-            });
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (navMenu.classList.contains('active') && 
-                !hamburger.contains(e.target) && 
-                !navMenu.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-        
-        // Close menu on window resize
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
+    if (!hamburger || !navMenu) {
+        console.error('Mobile menu elements not found!');
+        return;
     }
-});
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    
+    let isMenuOpen = false;
+    
+    // Hamburger click handler
+    hamburger.addEventListener('click', function(e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        e.stopPropagation();
+        console.log('🍔 Hamburger clicked! Current state:', isMenuOpen);
+        
+        isMenuOpen = !isMenuOpen;
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        
+        console.log('Menu state changed to:', isMenuOpen);
+    });
+    
+    // Navigation link click handler
+    const navLinks = document.querySelectorAll('.header-link');
+    console.log('Found navigation links:', navLinks.length);
+    
+    navLinks.forEach((link, index) => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            console.log(`🔗 Link ${index + 1} clicked:`, href);
+            
+            if (href && href.startsWith('#')) {
+                console.log('Internal link - closing menu');
+                isMenuOpen = false;
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            } else {
+                console.log('External link - keeping menu open');
+                // Don't close menu for external links
+            }
+        });
+    });
+    
+    // Click outside to close
+    document.addEventListener('click', function(e) {
+        if (!isMenuOpen) return;
+        
+        const clickedElement = e.target;
+        const isClickInsideMenu = navMenu.contains(clickedElement);
+        const isClickOnHamburger = hamburger.contains(clickedElement);
+        
+        console.log('📱 Click outside check:', {
+            isMenuOpen,
+            isClickInsideMenu,
+            isClickOnHamburger,
+            clickedElement: clickedElement.tagName
+        });
+        
+        if (!isClickInsideMenu && !isClickOnHamburger) {
+            console.log('Click outside detected - closing menu');
+            isMenuOpen = false;
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
         }
     });
+    
+    // Window resize handler
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && isMenuOpen) {
+            console.log('📱 Screen resized to desktop - closing menu');
+            isMenuOpen = false;
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
+    
+    console.log('✅ Mobile menu initialization complete');
+});
+
+// Smooth scrolling for navigation links (separate from mobile menu)
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('=== SMOOTH SCROLLING INITIALIZATION ===');
+    
+    const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+    console.log('Found smooth scroll links:', smoothScrollLinks.length);
+    
+    smoothScrollLinks.forEach((anchor, index) => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            console.log(`📜 Smooth scroll link ${index + 1} clicked:`, href);
+            
+            e.preventDefault();
+            const target = document.querySelector(href);
+            
+            if (target) {
+                console.log('Scrolling to target:', target.tagName, target.id);
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            } else {
+                console.warn('Target not found for:', href);
+            }
+        });
+    });
+    
+    console.log('✅ Smooth scrolling initialization complete');
 });
 
 // Intersection Observer for fade-in animations
@@ -301,17 +352,6 @@ function handleMobileImprovements() {
 
 // Initialize mobile improvements
 document.addEventListener('DOMContentLoaded', handleMobileImprovements);
-
-// Handle window resize
-window.addEventListener('resize', () => {
-    // Close mobile menu if screen becomes larger
-    if (window.innerWidth > 768) {
-        if (hamburger && navMenu) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
-    }
-});
 
 // Add loading animation styles
 const loadingStyles = document.createElement('style');
