@@ -2020,13 +2020,44 @@ body, .dark-theme {
 .recruitment-hero.hero,
 .migration-hero,
 .recruitment-hero {
-    min-height: 340px !important;
+    min-height: 280px !important;
     height: auto !important;
-    padding-top: 40px !important;
-    padding-bottom: 40px !important;
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
     display: flex;
     align-items: center;
 }
+
+.hero.migration-hero .hero-container,
+.hero.recruitment-hero .hero-container,
+.migration-hero.hero .hero-container,
+.recruitment-hero.hero .hero-container,
+.migration-hero .hero-container,
+.recruitment-hero .hero-container {
+    gap: 2rem !important;
+    padding: 0 20px !important;
+}
+
+.hero.migration-hero .hero-content h1,
+.hero.recruitment-hero .hero-content h1,
+.migration-hero.hero .hero-content h1,
+.recruitment-hero.hero .hero-content h1,
+.migration-hero .hero-content h1,
+.recruitment-hero .hero-content h1 {
+    font-size: 2.5rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.hero.migration-hero .hero-content p,
+.hero.recruitment-hero .hero-content p,
+.migration-hero.hero .hero-content p,
+.recruitment-hero.hero .hero-content p,
+.migration-hero .hero-content p,
+.recruitment-hero .hero-content p {
+    font-size: 1.1rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
 @media (max-width: 700px) {
     .hero.migration-hero,
     .hero.recruitment-hero,
@@ -2034,8 +2065,26 @@ body, .dark-theme {
     .recruitment-hero.hero,
     .migration-hero,
     .recruitment-hero {
-        min-height: 180px !important;
+        min-height: 200px !important;
         padding-top: 20px !important;
         padding-bottom: 20px !important;
+    }
+    
+    .hero.migration-hero .hero-content h1,
+    .hero.recruitment-hero .hero-content h1,
+    .migration-hero.hero .hero-content h1,
+    .recruitment-hero.hero .hero-content h1,
+    .migration-hero .hero-content h1,
+    .recruitment-hero .hero-content h1 {
+        font-size: 2rem !important;
+    }
+    
+    .hero.migration-hero .hero-content p,
+    .hero.recruitment-hero .hero-content p,
+    .migration-hero.hero .hero-content p,
+    .recruitment-hero.hero .hero-content p,
+    .migration-hero .hero-content p,
+    .recruitment-hero .hero-content p {
+        font-size: 1rem !important;
     }
 } 
