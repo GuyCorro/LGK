@@ -2290,10 +2290,12 @@ img {
     display: block;
 }
 
-/* Prevent layout shifts */
+/* Prevent layout shifts - but allow content to flow properly */
 .service-card {
-    aspect-ratio: 1;
     contain: layout style paint;
+    min-height: 400px;
+    height: auto;
+    overflow: visible;
 }
 
 .hero-card {
