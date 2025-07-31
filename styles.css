@@ -135,30 +135,7 @@ body, .dark-theme {
 }
 
 /* Mobile Navigation Improvements */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 10px;
-    background: rgba(37, 99, 235, 0.2);
-    border-radius: 8px;
-    margin-left: auto;
-    border: 2px solid rgba(37, 99, 235, 0.3);
-}
 
-.hamburger .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #2563eb;
-    margin: 3px 0;
-    transition: 0.3s;
-    border-radius: 2px;
-}
-
-.hamburger:hover {
-    background: rgba(37, 99, 235, 0.3);
-    border-color: rgba(37, 99, 235, 0.5);
-}
 
 
 
@@ -185,9 +162,7 @@ body, .dark-theme {
         z-index: 1001;
     }
     
-    .hamburger {
-        display: none !important;
-    }
+
     
     .header-menu ul {
         position: fixed !important;
@@ -1507,26 +1482,7 @@ body, .dark-theme {
         margin-bottom: 0.5rem;
     }
     
-    /* Mobile hamburger improvements */
-    .hamburger {
-        min-height: 48px;
-        min-width: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0.15);
-        border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .hamburger .bar {
-        width: 24px;
-        height: 3px;
-        background-color: #fff;
-        margin: 3px 0;
-        transition: 0.3s;
-        border-radius: 2px;
-    }
+
     
     /* Mobile section improvements */
     section {
@@ -1831,7 +1787,7 @@ body, .dark-theme {
     }
     
     /* Prevent text selection on interactive elements */
-    .btn, .header-link, .hamburger {
+    .btn, .header-link {
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
@@ -1909,8 +1865,7 @@ body, .dark-theme {
 @media (max-width: 768px) {
     /* Better focus indicators for mobile */
     .btn:focus-visible,
-    .header-link:focus-visible,
-    .hamburger:focus-visible {
+    .header-link:focus-visible {
         outline: 3px solid var(--primary-blue);
         outline-offset: 2px;
         border-radius: 8px;
@@ -1977,7 +1932,6 @@ body, .dark-theme {
 /* Mobile-specific print styles */
 @media print {
     .header-card,
-    .hamburger,
     .btn,
     .contact-form {
         display: none !important;
