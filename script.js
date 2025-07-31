@@ -1,69 +1,17 @@
-// Mobile Navigation Toggle - Completely Recreated
+// Navigation Menu - Always Visible
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('=== MOBILE MENU INITIALIZATION ===');
+    console.log('=== NAVIGATION MENU INITIALIZATION ===');
     
-    const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.header-menu ul');
     
-    console.log('Elements found:', {
-        hamburger: hamburger ? 'Found' : 'NOT FOUND',
-        navMenu: navMenu ? 'Found' : 'NOT FOUND'
-    });
+    console.log('Navigation menu found:', navMenu ? 'Found' : 'NOT FOUND');
     
-    if (!hamburger || !navMenu) {
-        console.error('Mobile menu elements not found!');
+    if (!navMenu) {
+        console.error('Navigation menu element not found!');
         return;
     }
     
-    let isMenuOpen = false;
-    
-    // Function to log menu state
-    function logMenuState(action) {
-        console.log(`📊 ${action}:`, {
-            isMenuOpen,
-            hamburgerActive: hamburger.classList.contains('active'),
-            navMenuActive: navMenu.classList.contains('active'),
-            navMenuLeft: window.getComputedStyle(navMenu).left
-        });
-    }
-    
-    // Hamburger click handler
-    hamburger.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        console.log('🍔 Hamburger clicked! Current state:', isMenuOpen);
-        
-        isMenuOpen = !isMenuOpen;
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        
-        // Set menu position based on state
-        if (isMenuOpen) {
-            navMenu.style.left = '0';
-        } else {
-            navMenu.style.left = '-100vw';
-        }
-        
-        // Immediate debugging
-        console.log('🔍 IMMEDIATE DEBUG:', {
-            isMenuOpen: isMenuOpen,
-            hamburgerClasses: hamburger.className,
-            navMenuClasses: navMenu.className,
-            navMenuStyle: navMenu.style.cssText,
-            navMenuComputedLeft: window.getComputedStyle(navMenu).left,
-            navMenuComputedDisplay: window.getComputedStyle(navMenu).display,
-            navMenuComputedPosition: window.getComputedStyle(navMenu).position
-        });
-        
-        logMenuState('After hamburger click');
-        
-        // Force a repaint to ensure CSS changes are applied
-        navMenu.offsetHeight;
-        
-        console.log('Menu state changed to:', isMenuOpen);
-    });
-    
-    // Navigation link click handler
+    // Navigation link click handler for smooth scrolling
     const navLinks = document.querySelectorAll('.header-link');
     console.log('Found navigation links:', navLinks.length);
     
@@ -73,60 +21,15 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log(`🔗 Link ${index + 1} clicked:`, href);
             
             if (href && href.startsWith('#')) {
-                console.log('Internal link - closing menu');
-                isMenuOpen = false;
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                navMenu.style.left = '-100vw';
-                logMenuState('After internal link click');
+                console.log('Internal link - smooth scrolling to section');
+                // Smooth scrolling will be handled by the existing smooth scroll code
             } else {
-                console.log('External link - keeping menu open');
-                // Don't close menu for external links
+                console.log('External link - navigating to external page');
             }
         });
     });
     
-    // Click outside to close
-    document.addEventListener('click', function(e) {
-        if (!isMenuOpen) return;
-        
-        const clickedElement = e.target;
-        const isClickInsideMenu = navMenu.contains(clickedElement);
-        const isClickOnHamburger = hamburger.contains(clickedElement);
-        
-        console.log('📱 Click outside check:', {
-            isMenuOpen,
-            isClickInsideMenu,
-            isClickOnHamburger,
-            clickedElement: clickedElement.tagName,
-            clickedElementClass: clickedElement.className
-        });
-        
-        if (!isClickInsideMenu && !isClickOnHamburger) {
-            console.log('Click outside detected - closing menu');
-            isMenuOpen = false;
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            navMenu.style.left = '-100vw';
-            logMenuState('After click outside');
-        }
-    });
-    
-    // Window resize handler
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768 && isMenuOpen) {
-            console.log('📱 Screen resized to desktop - closing menu');
-            isMenuOpen = false;
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            navMenu.style.left = '-100vw';
-            logMenuState('After resize');
-        }
-    });
-    
-    // Log initial state
-    logMenuState('Initial state');
-    console.log('✅ Mobile menu initialization complete');
+    console.log('✅ Navigation menu initialization complete');
 });
 
 // Smooth scrolling for navigation links (separate from mobile menu)
