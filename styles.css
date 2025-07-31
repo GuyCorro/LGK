@@ -2088,3 +2088,83 @@ body, .dark-theme {
         font-size: 1rem !important;
     }
 } 
+
+/* EXTREMELY AGGRESSIVE OVERRIDE for dedicated page hero sections */
+body .hero.migration-hero,
+body .hero.recruitment-hero,
+body .migration-hero.hero,
+body .recruitment-hero.hero,
+body .migration-hero,
+body .recruitment-hero {
+    min-height: 250px !important;
+    max-height: 300px !important;
+    height: auto !important;
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+body .hero.migration-hero .hero-container,
+body .hero.recruitment-hero .hero-container,
+body .migration-hero.hero .hero-container,
+body .recruitment-hero.hero .hero-container,
+body .migration-hero .hero-container,
+body .recruitment-hero .hero-container {
+    gap: 1.5rem !important;
+    padding: 0 20px !important;
+}
+
+body .hero.migration-hero .hero-content h1,
+body .hero.recruitment-hero .hero-content h1,
+body .migration-hero.hero .hero-content h1,
+body .recruitment-hero.hero .hero-content h1,
+body .migration-hero .hero-content h1,
+body .recruitment-hero .hero-content h1 {
+    font-size: 2.2rem !important;
+    margin-bottom: 0.8rem !important;
+    line-height: 1.1 !important;
+}
+
+body .hero.migration-hero .hero-content p,
+body .hero.recruitment-hero .hero-content p,
+body .migration-hero.hero .hero-content p,
+body .recruitment-hero.hero .hero-content p,
+body .migration-hero .hero-content p,
+body .recruitment-hero .hero-content p {
+    font-size: 1rem !important;
+    margin-bottom: 1.2rem !important;
+    line-height: 1.4 !important;
+}
+
+@media (max-width: 700px) {
+    body .hero.migration-hero,
+    body .hero.recruitment-hero,
+    body .migration-hero.hero,
+    body .recruitment-hero.hero,
+    body .migration-hero,
+    body .recruitment-hero {
+        min-height: 180px !important;
+        max-height: 220px !important;
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+    }
+    
+    body .hero.migration-hero .hero-content h1,
+    body .hero.recruitment-hero .hero-content h1,
+    body .migration-hero.hero .hero-content h1,
+    body .recruitment-hero.hero .hero-content h1,
+    body .migration-hero .hero-content h1,
+    body .recruitment-hero .hero-content h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    body .hero.migration-hero .hero-content p,
+    body .hero.recruitment-hero .hero-content p,
+    body .migration-hero.hero .hero-content p,
+    body .recruitment-hero.hero .hero-content p,
+    body .migration-hero .hero-content p,
+    body .recruitment-hero .hero-content p {
+        font-size: 0.9rem !important;
+    }
+} 
