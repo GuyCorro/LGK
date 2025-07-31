@@ -4,9 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GLK Migration & Recruitment - Professional Visa & Recruitment Services</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Preload critical images -->
+    <link rel="preload" href="migration Images/pexels-sametcolakoglu-14859277.jpg" as="image">
+    <link rel="preload" href="Recruitment Images/pexels-mikhail-nilov-8730284.jpg" as="image">
+    <link rel="preload" href="migration Images/pexels-mralexphotography-15365071.jpg" as="image">
+    <link rel="preload" href="migration Images/pexels-ian-panelo-15942034.jpg" as="image">
+    <link rel="preload" href="Recruitment Images/pexels-ekaterina-bolovtsova-6077326.jpg" as="image">
+    <link rel="preload" href="Recruitment Images/pexels-thisisengineering-3861969.jpg" as="image">
+    
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </noscript>
 </head>
 <body>
     <div class="header-card">
