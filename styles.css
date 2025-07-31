@@ -47,7 +47,7 @@ body, .dark-theme {
 
 /* Enhanced Header Card with Mobile Navigation */
 .header-card {
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 60%, rgba(37, 99, 235, 0.85) 100%);
+    background: url('migration Images/pexels-sametcolakoglu-14859277.jpg') center/cover no-repeat;
     box-shadow: 0 4px 24px rgba(30, 41, 59, 0.13);
     padding: 2rem 2rem 1.5rem 2rem;
     margin-bottom: 2.5rem;
@@ -63,11 +63,7 @@ body, .dark-theme {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('migration Images/pexels-sametcolakoglu-14859277.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    opacity: 0.15;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.88) 60%, rgba(37, 99, 235, 0.75) 100%);
     z-index: -1;
 }
 
