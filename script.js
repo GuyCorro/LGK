@@ -37,6 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
         
+        // Set menu position based on state
+        if (isMenuOpen) {
+            navMenu.style.left = '0';
+        } else {
+            navMenu.style.left = '-100vw';
+        }
+        
         // Immediate debugging
         console.log('🔍 IMMEDIATE DEBUG:', {
             isMenuOpen: isMenuOpen,
@@ -70,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 isMenuOpen = false;
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                navMenu.style.left = '-100vw';
                 logMenuState('After internal link click');
             } else {
                 console.log('External link - keeping menu open');
@@ -99,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
             isMenuOpen = false;
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            navMenu.style.left = '-100vw';
             logMenuState('After click outside');
         }
     });
@@ -110,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
             isMenuOpen = false;
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            navMenu.style.left = '-100vw';
             logMenuState('After resize');
         }
     });
