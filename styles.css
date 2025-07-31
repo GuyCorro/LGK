@@ -520,9 +520,10 @@ body, .dark-theme {
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-height: 400px;
+    min-height: 500px;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
 }
 
 .service-card:hover {
@@ -599,7 +600,7 @@ body, .dark-theme {
     
     .service-card {
         padding: 1.5rem;
-        min-height: auto;
+        min-height: 450px;
     }
     
     .service-card h3 {
@@ -2293,7 +2294,7 @@ img {
 /* Prevent layout shifts - but allow content to flow properly */
 .service-card {
     contain: layout style paint;
-    min-height: 400px;
+    min-height: 500px;
     height: auto;
     overflow: visible;
 }
