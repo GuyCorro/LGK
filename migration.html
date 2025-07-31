@@ -5,81 +5,198 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Migration Services | GLK Migration & Recruitment</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="dark-theme">
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>GLK Migration & Recruitment</h2>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="migration.html" class="nav-link active">Migration</a></li>
-                <li class="nav-item"><a href="recruitment.html" class="nav-link">Recruitment</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
+    <div class="header-card">
+        <nav class="header-menu">
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-        </div>
-    </nav>
+            <ul>
+                <li><a href="index.html" class="header-link">Home</a></li>
+                <li><a href="migration.html" class="header-link active">Migration</a></li>
+                <li><a href="recruitment.html" class="header-link">Recruitment</a></li>
+                <li><a href="index.html#contact" class="header-link">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-title">Migration Services</div>
+        <div class="header-tagline">Expert guidance for your Australian migration journey</div>
+    </div>
+
     <section class="hero migration-hero">
         <div class="hero-container">
             <div class="hero-content">
                 <h1>Migration Services</h1>
                 <p>Expert guidance for business, skilled, and family migration to Australia. Let us help you achieve your migration goals with confidence.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">Our Services</a>
+                    <a href="index.html#contact" class="btn btn-secondary">Get Consultation</a>
+                </div>
             </div>
             <div class="hero-image">
                 <img src="migration Images/pexels-sametcolakoglu-14859277.jpg" alt="Migration" class="main-hero-img">
             </div>
         </div>
     </section>
-    <section class="services-section dark-section">
+
+    <section id="services" class="services-section dark-section migration-services-bg">
         <div class="container">
             <div class="section-header">
                 <h2>Our Migration Services</h2>
-                <p>Comprehensive support for all major Australian visa categories.</p>
+                <p>Comprehensive support for all major Australian visa categories with personalized guidance throughout your journey.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card" style="background-image: url('migration Images/pexels-sametcolakoglu-14859277.jpg'); background-size: cover; background-position: center;">
                     <div class="service-icon"><i class="fas fa-building"></i></div>
-                    <h3>Business Visas</h3>
-                    <p>Business Innovation, Talent, and Investor visas for entrepreneurs and investors.</p>
+                    <div class="service-text-bg"><h3>Business Visas</h3></div>
+                    <div class="service-text-bg"><p>Business Innovation, Talent, and Investor visas for entrepreneurs and investors.</p></div>
+                    <div class="service-text-bg"><ul>
+                        <li>Business Innovation Visa (Subclass 188)</li>
+                        <li>Business Talent Visa (Subclass 132)</li>
+                        <li>Investor Visa Programs</li>
+                        <li>Business Establishment Support</li>
+                    </ul></div>
                 </div>
-                <div class="service-card">
+                <div class="service-card" style="background-image: url('migration Images/pexels-mralexphotography-15365071.jpg'); background-size: cover; background-position: center;">
                     <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <h3>Skilled Migration</h3>
-                    <p>Permanent residency pathways for skilled professionals and tradespeople.</p>
+                    <div class="service-text-bg"><h3>Skilled Migration</h3></div>
+                    <div class="service-text-bg"><p>Permanent residency pathways for skilled professionals and tradespeople.</p></div>
+                    <div class="service-text-bg"><ul>
+                        <li>Skilled Independent Visa (Subclass 189)</li>
+                        <li>Skilled Nominated Visa (Subclass 190)</li>
+                        <li>Regional Sponsored Visa (Subclass 491)</li>
+                        <li>Skills Assessment Support</li>
+                    </ul></div>
                 </div>
-                <div class="service-card">
+                <div class="service-card" style="background-image: url('migration Images/pexels-ian-panelo-15942034.jpg'); background-size: cover; background-position: center;">
                     <div class="service-icon"><i class="fas fa-briefcase"></i></div>
-                    <h3>Employer Sponsored</h3>
-                    <p>Temporary and permanent visas for employees sponsored by Australian businesses.</p>
+                    <div class="service-text-bg"><h3>Employer Sponsored</h3></div>
+                    <div class="service-text-bg"><p>Temporary and permanent visas for employees sponsored by Australian businesses.</p></div>
+                    <div class="service-text-bg"><ul>
+                        <li>Temporary Skill Shortage Visa (Subclass 482)</li>
+                        <li>Employer Nomination Scheme (Subclass 186)</li>
+                        <li>Regional Sponsored Migration Scheme</li>
+                        <li>Labour Market Testing Support</li>
+                    </ul></div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-family"></i></div>
-                    <h3>Family Visas</h3>
-                    <p>Partner, parent, and child visas to reunite families in Australia.</p>
+                <div class="service-card" style="background-image: url('migration Images/pexels-catarina-sousa-9147-68704.jpg'); background-size: cover; background-position: center;">
+                    <div class="service-icon"><i class="fas fa-users"></i></div>
+                    <div class="service-text-bg"><h3>Family Visas</h3></div>
+                    <div class="service-text-bg"><p>Partner, parent, and child visas to reunite families in Australia.</p></div>
+                    <div class="service-text-bg"><ul>
+                        <li>Partner Visa (Subclass 820/801)</li>
+                        <li>Parent Visa Programs</li>
+                        <li>Child Visa Applications</li>
+                        <li>Family Sponsorship Support</li>
+                    </ul></div>
+                </div>
+                <div class="service-card" style="background-image: url('migration Images/pexels-esther-234072-746500.jpg'); background-size: cover; background-position: center;">
+                    <div class="service-icon"><i class="fas fa-plane"></i></div>
+                    <div class="service-text-bg"><h3>Student Visas</h3></div>
+                    <div class="service-text-bg"><p>Student visa services for international students pursuing education in Australia.</p></div>
+                    <div class="service-text-bg"><ul>
+                        <li>Student Visa (Subclass 500)</li>
+                        <li>Student Guardian Visa</li>
+                        <li>Education Provider Selection</li>
+                        <li>Post-Study Work Pathways</li>
+                    </ul></div>
+                </div>
+                <div class="service-card" style="background-image: url('migration Images/pexels-arlindphotography-33181588.jpg'); background-size: cover; background-position: center;">
+                    <div class="service-icon"><i class="fas fa-handshake"></i></div>
+                    <div class="service-text-bg"><h3>Consultation Services</h3></div>
+                    <div class="service-text-bg"><p>Comprehensive consultation and support throughout your migration journey.</p></div>
+                    <div class="service-text-bg"><ul>
+                        <li>Initial Assessment & Planning</li>
+                        <li>Document Preparation</li>
+                        <li>Application Lodgement</li>
+                        <li>Ongoing Support</li>
+                    </ul></div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="about-section migration-about-bg">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Why Choose Our Migration Services?</h2>
+                    <p>With years of experience in Australian migration law and a proven track record of successful applications, we provide comprehensive support to make your migration journey smooth and successful.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Licensed Migration Agents</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>High Success Rate</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Personalized Service</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Ongoing Support</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>95%</h3>
+                        <p>Success Rate</p>
+                    </div>
+                    <div class="stat">
+                        <h3>500+</h3>
+                        <p>Successful Applications</p>
+                    </div>
+                    <div class="stat">
+                        <h3>10+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat">
+                        <h3>24/7</h3>
+                        <p>Client Support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer dark-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>GLK Migration & Recruitment</h3>
                     <p>Your trusted partner for migration and recruitment services in Australia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Migration Services</h4>
+                    <ul>
+                        <li><a href="#services">Business Visas</a></li>
+                        <li><a href="#services">Skilled Migration</a></li>
+                        <li><a href="#services">Family Visas</a></li>
+                        <li><a href="#services">Employer Sponsored</a></li>
+                    </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="migration.html">Migration</a></li>
                         <li><a href="recruitment.html">Recruitment</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="#services">Our Services</a></li>
                     </ul>
                 </div>
             </div>

@@ -1022,12 +1022,257 @@ body, .dark-theme {
     text-shadow: none;
 }
 
+/* Section Background Images */
+.migration-bg {
+    position: relative;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+}
+
+.migration-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('migration Images/pexels-pixabay-302769.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.recruitment-bg {
+    position: relative;
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.95) 100%);
+}
+
+.recruitment-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('Recruitment Images/pexels-burst-544965.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.08;
+    z-index: -1;
+}
+
+.about-bg {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+}
+
+.about-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('migration Images/pexels-ekaterinabelinskaya-4922356.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.06;
+    z-index: -1;
+}
+
+.contact-bg {
+    position: relative;
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.95) 100%);
+}
+
+.contact-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('Recruitment Images/pexels-edmond-dantes-4342496.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.07;
+    z-index: -1;
+}
+
+/* Dedicated Page Background Styles */
+.migration-services-bg {
+    position: relative;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(37, 99, 235, 0.9) 100%);
+}
+
+.migration-services-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('migration Images/pexels-pixabay-302769.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.recruitment-services-bg {
+    position: relative;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(37, 99, 235, 0.9) 100%);
+}
+
+.recruitment-services-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('Recruitment Images/pexels-burst-544965.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.12;
+    z-index: -1;
+}
+
+.migration-about-bg {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+}
+
+.migration-about-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('migration Images/pexels-arlindphotography-33181588.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.08;
+    z-index: -1;
+}
+
+.recruitment-about-bg {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+}
+
+.recruitment-about-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('Recruitment Images/pexels-myatezhny39-2209529.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.07;
+    z-index: -1;
+}
+
+/* Hero Section Backgrounds for Dedicated Pages */
+.migration-hero {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+}
+
+.migration-hero::before {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
+}
+
+.recruitment-hero {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+}
+
+.recruitment-hero::before {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
+}
+
+/* Section CTA Styles */
+.section-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+.section-cta .btn {
+    font-size: 1.1rem;
+    padding: 15px 35px;
+    min-width: 200px;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+    transition: all 0.3s ease;
+}
+
+.section-cta .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(37, 99, 235, 0.3);
+}
+
+/* Enhanced Service Cards with Better Image Integration */
+.service-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.85) 0%, rgba(29, 78, 216, 0.85) 100%);
+    z-index: 1;
+}
+
+.service-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+.service-card:hover::before {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(29, 78, 216, 0.9) 100%);
+}
+
 /* Mobile Service Text Background */
 @media (max-width: 768px) {
     .service-text-bg {
         max-width: 95%;
         padding: 0.4em 0.8em;
         font-size: 0.9rem;
+    }
+    
+    /* Disable fixed background attachment on mobile for better performance */
+    .migration-bg::before,
+    .recruitment-bg::before,
+    .about-bg::before,
+    .contact-bg::before {
+        background-attachment: scroll;
+    }
+    
+    .section-cta {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+    
+    .section-cta .btn {
+        font-size: 1rem;
+        padding: 12px 25px;
+        min-width: 180px;
     }
 }
 
@@ -1036,6 +1281,17 @@ body, .dark-theme {
         max-width: 100%;
         padding: 0.3em 0.6em;
         font-size: 0.85rem;
+    }
+    
+    .section-cta {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+    }
+    
+    .section-cta .btn {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+        min-width: 160px;
     }
 }
 
