@@ -8,10 +8,15 @@ if (hamburger && navMenu) {
         navMenu.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('.header-link').forEach(n => n.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+    // Close mobile menu only when clicking on internal page links
+    document.querySelectorAll('.header-link').forEach(n => n.addEventListener('click', (e) => {
+        const href = n.getAttribute('href');
+        // Only close menu for internal page links (starting with #)
+        if (href && href.startsWith('#')) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+        // Don't close menu for external page links (migration.html, recruitment.html)
     }));
 }
 
