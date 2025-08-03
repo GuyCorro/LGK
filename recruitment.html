@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recruitment Services - GLK Migration & Recruitment</title>
+    <title>Recruitment Services - GLK Global Recruitment</title>
     
     <!-- Preload critical resources -->
     <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -37,7 +37,7 @@
                 <li><a href="index.html" class="header-link">Home</a></li>
                 <li><a href="migration.html" class="header-link">Migration</a></li>
                 <li><a href="recruitment.html" class="header-link active">Recruitment</a></li>
-                <li><a href="index.html#contact" class="header-link">Contact</a></li>
+                <li><a href="#contact" class="header-link">Contact</a></li>
             </ul>
         </nav>
         <div class="header-logo">
@@ -54,7 +54,7 @@
                 <p>Connecting exceptional talent with outstanding opportunities across Australia. We help businesses grow and professionals thrive.</p>
                 <div class="hero-buttons">
                     <a href="#services" class="btn btn-primary">Our Services</a>
-                    <a href="index.html#contact" class="btn btn-secondary">Get Started</a>
+                    <a href="#contact" class="btn btn-secondary">Get Started</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -188,12 +188,75 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section contact-bg">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Ready to find the perfect talent or opportunity? Contact us today</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>GLK Legal<br>University of Wollongong<br>Innovation Campus<br>Enterprise 1 – Smart Space<br>Squires Way<br>Wollongong NSW 2500<br>Australia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Recruitment Services</h4>
+                            <p>GLK Global Recruitment<br>+61 2 4202 9792</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 1:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Your Phone">
+                    </div>
+                    <div class="form-group">
+                        <select id="service" name="service" required>
+                            <option value="">Select Recruitment Service</option>
+                            <option value="executive">Executive Search</option>
+                            <option value="technology">Technology Recruitment</option>
+                            <option value="finance">Finance & Accounting</option>
+                            <option value="general">General Recruitment</option>
+                            <option value="graduate">Graduate Recruitment</option>
+                            <option value="consultation">Consultation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer dark-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>GLK Migration & Recruitment</h3>
-                    <p>Your trusted partner for migration and recruitment services in Australia.</p>
+                    <h3>GLK Global Recruitment</h3>
+                    <p>Your trusted partner for recruitment services in Australia.</p>
+                    <p><strong>Phone:</strong> +61 2 4202 9792</p>
+                    <p><strong>Address:</strong><br>GLK Legal<br>University of Wollongong<br>Innovation Campus<br>Enterprise 1 – Smart Space<br>Squires Way<br>Wollongong NSW 2500</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -215,13 +278,13 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="migration.html">Migration</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="#contact">Contact</a></li>
                         <li><a href="#services">Our Services</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 GLK Migration & Recruitment. All rights reserved.</p>
+                <p>&copy; 2024 GLK Global Recruitment. All rights reserved.</p>
             </div>
         </div>
     </footer>
