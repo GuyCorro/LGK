@@ -103,6 +103,33 @@ body, .dark-theme {
     hyphens: auto;
 }
 
+/* Page Logo Styles */
+.header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.page-logo {
+    max-width: 200px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
 .header-menu {
     display: flex;
     justify-content: center;
@@ -161,6 +188,16 @@ body, .dark-theme {
         margin-bottom: 1.5rem;
     }
     
+    .header-logo {
+        margin-bottom: 0.8rem;
+    }
+    
+    .page-logo {
+        max-width: 150px;
+        max-height: 60px;
+        padding: 6px;
+    }
+    
     .header-title {
         font-size: clamp(1.3rem, 5vw, 1.8rem);
         margin-bottom: 0.3rem;
@@ -202,6 +239,16 @@ body, .dark-theme {
         margin-bottom: 1rem;
     }
     
+    .header-logo {
+        margin-bottom: 0.6rem;
+    }
+    
+    .page-logo {
+        max-width: 120px;
+        max-height: 50px;
+        padding: 4px;
+    }
+    
     .header-title {
         font-size: clamp(1.1rem, 6vw, 1.5rem);
         line-height: 1.1;
@@ -236,6 +283,16 @@ body, .dark-theme {
         min-height: 140px;
     }
     
+    .header-logo {
+        margin-bottom: 0.5rem;
+    }
+    
+    .page-logo {
+        max-width: 100px;
+        max-height: 40px;
+        padding: 3px;
+    }
+    
     .header-title {
         font-size: clamp(1rem, 7vw, 1.3rem);
     }
@@ -261,7 +318,9 @@ body, .dark-theme {
 .header-tagline,
 .header-menu,
 .header-menu ul,
-.header-link {
+.header-link,
+.header-logo,
+.page-logo {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -273,6 +332,14 @@ body, .dark-theme {
 
 .header-link {
     display: inline-flex !important;
+}
+
+.header-logo {
+    display: flex !important;
+}
+
+.page-logo {
+    display: block !important;
 }
 
 /* Hero Section Mobile Improvements - FIXED RESPONSIVE ISSUES */
@@ -2053,6 +2120,21 @@ body, .dark-theme {
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         color: #fff !important;
     }
+    
+    /* Ensure logo is visible and properly sized */
+    .header-logo {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    
+    .page-logo {
+        display: block !important;
+        max-width: 150px !important;
+        max-height: 60px !important;
+        width: auto !important;
+        height: auto !important;
+    }
 }
 
 /* Mobile-specific performance optimizations - FIXED */
@@ -2083,6 +2165,16 @@ body, .dark-theme {
     .header-card {
         padding: 0.5rem 0.2rem;
         min-height: 120px;
+    }
+    
+    .header-logo {
+        margin-bottom: 0.4rem;
+    }
+    
+    .page-logo {
+        max-width: 80px;
+        max-height: 35px;
+        padding: 2px;
     }
     
     .header-title {
@@ -2506,6 +2598,8 @@ body {
 .header-menu,
 .header-menu ul,
 .header-link,
+.header-logo,
+.page-logo,
 .hero,
 .hero-container,
 .hero-content,
