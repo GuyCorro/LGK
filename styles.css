@@ -836,6 +836,18 @@ body, .dark-theme {
     font-size: 1.2rem;
 }
 
+.feature-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.feature-link:hover {
+    color: var(--secondary-blue);
+    text-decoration: underline;
+}
+
 .about-stats {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
