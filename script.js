@@ -92,35 +92,78 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Contact form handling
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+// EmailJS Configuration
+(function() {
+    'use strict';
+    
+    // EmailJS configuration
+    const EMAILJS_CONFIG = {
+        serviceId: 'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        templateId: 'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        publicKey: 'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+    };
+    
+    // Initialize EmailJS
+    emailjs.init(EMAILJS_CONFIG.publicKey);
+    
+    // Contact form handling with EmailJS
+    function initializeContactForm() {
+        const contactForm = document.querySelector('.contact-form');
         
-        // Get form data
-        const formData = new FormData(this);
-        const submitButton = this.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-        
-        // Show loading state
-        submitButton.innerHTML = '<span class="loading"></span> Sending...';
-        submitButton.disabled = true;
-        
-        // Simulate form submission (replace with actual form handling)
-        setTimeout(() => {
-            // Show success message
-            showNotification('Thank you! Your message has been sent successfully. We will get back to you soon.', 'success');
-            
-            // Reset form
-            this.reset();
-            
-            // Reset button
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        }, 2000);
-    });
-}
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!validateForm(this)) {
+                    showNotification('Please fill in all required fields correctly.', 'error');
+                    return;
+                }
+                
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                
+                // Show loading state
+                submitButton.innerHTML = '<span class="loading"></span> Sending...';
+                submitButton.disabled = true;
+                
+                // Get form data
+                const formData = {
+                    name: this.querySelector('#name').value,
+                    email: this.querySelector('#email').value,
+                    phone: this.querySelector('#phone').value,
+                    service: this.querySelector('#service').value,
+                    message: this.querySelector('#message').value,
+                    page: window.location.pathname.split('/').pop() || 'index.html'
+                };
+                
+                // Send email using EmailJS v3
+                emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, formData)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        showNotification('Thank you! Your message has been sent successfully. We will get back to you soon.', 'success');
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Reset button
+                        submitButton.textContent = originalText;
+                        submitButton.disabled = false;
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        showNotification('Sorry, there was an error sending your message. Please try again or contact us directly.', 'error');
+                        
+                        // Reset button
+                        submitButton.textContent = originalText;
+                        submitButton.disabled = false;
+                    });
+            });
+        }
+    }
+    
+    // Initialize contact form when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initializeContactForm);
+    
+})();
 
 // Notification system
 function showNotification(message, type = 'info') {
@@ -145,7 +188,7 @@ function showNotification(message, type = 'info') {
         position: fixed;
         top: 20px;
         right: 20px;
-        background: ${type === 'success' ? '#10b981' : '#3b82f6'};
+        background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
         color: white;
         padding: 1rem 1.5rem;
         border-radius: 8px;
@@ -229,16 +272,6 @@ function validateForm(form) {
     }
     
     return isValid;
-}
-
-// Add form validation to contact form
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        if (!validateForm(this)) {
-            e.preventDefault();
-            showNotification('Please fill in all required fields correctly.', 'error');
-        }
-    });
 }
 
 // Active navigation highlighting
